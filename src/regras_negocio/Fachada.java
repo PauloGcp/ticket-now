@@ -230,7 +230,7 @@ public class Fachada {
 		Ingresso ingresso = repositorio.localizarIngresso(codigo);
 		
 		if (ingresso == null) {			
-			throw new Exception("Ingresso '"+ ingresso.getCodigo() +"' não encontrado");
+			throw new Exception("Ingresso '"+ codigo +"' não encontrado");
 		}
 			
 		if (ingresso instanceof IngressoGrupo) {
@@ -241,12 +241,14 @@ public class Fachada {
 				j.setEstoque(j.getEstoque()+1);
 			}
 			repositorio.remover(ingresso);
+			repositorio.salvar();
 		}else {				
 			Jogo jogoIndividual = ((IngressoIndividual) ingresso).getJogo();
 			((IngressoIndividual) ingresso).setJogo(null);
 			jogoIndividual.remover(ingresso);
 			jogoIndividual.setEstoque(jogoIndividual.getEstoque()+1);
 			repositorio.remover(ingresso);
+			repositorio.salvar();
 		}
 	}
 	

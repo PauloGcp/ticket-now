@@ -204,10 +204,10 @@ public class Repositorio {
 	//--------------------------------------------------------------------
 	public void	salvar()  {
 	//--------------------------------------------------------------------
-		//gravar nos arquivos csv os objetos que estão no repositório
+		//gravar nos arquivos csv os objetos que estï¿½o no repositï¿½rio
 		FileWriter arquivo=null;
 		try	{
-			File f = new File( new File(".\\times2.csv").getCanonicalPath())  ;
+			File f = new File( new File(".\\times.csv").getCanonicalPath())  ;
 			arquivo = new FileWriter(f); 
 			for(Time t : times) 	{
 				arquivo.write(t.getNome()+";"+t.getOrigem()+"\n");	
@@ -215,11 +215,11 @@ public class Repositorio {
 			arquivo.close();
 		}
 		catch(Exception e){
-			throw new RuntimeException("problema na criação do arquivo de times "+e.getMessage());
+			throw new RuntimeException("problema na criaï¿½ï¿½o do arquivo de times "+e.getMessage());
 		}
 
 		try	{
-			File f = new File( new File(".\\jogos2.csv").getCanonicalPath())  ;
+			File f = new File( new File(".\\jogos.csv").getCanonicalPath())  ;
 			arquivo = new FileWriter(f); 
 			for(Jogo j : jogos) 	{
 				arquivo.write(j.getId()+";"+j.getData()+";"+j.getLocal()+";"+j.getEstoque()+";"+j.getPreco()+";"+j.getTime1().getNome()+";"+j.getTime2().getNome()+"\n");	
@@ -227,11 +227,11 @@ public class Repositorio {
 			arquivo.close();
 		}
 		catch(Exception e){
-			throw new RuntimeException("problema na criação do arquivo de jogos "+e.getMessage());
+			throw new RuntimeException("problema na criaï¿½ï¿½o do arquivo de jogos "+e.getMessage());
 		}
 
 		try	{
-			File f = new File( new File(".\\ingressos2.csv").getCanonicalPath())  ;
+			File f = new File( new File(".\\ingressos.csv").getCanonicalPath())  ;
 			arquivo = new FileWriter(f) ; 
 
 			for(Ingresso ingresso : ingressos) {
@@ -251,7 +251,7 @@ public class Repositorio {
 			arquivo.close();
 		}
 		catch (Exception e) {
-			throw new RuntimeException("problema na criação do arquivo de ingressos "+e.getMessage());
+			throw new RuntimeException("problema na criaï¿½ï¿½o do arquivo de ingressos "+e.getMessage());
 		}
 
 	}

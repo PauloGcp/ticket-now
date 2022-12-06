@@ -1,7 +1,7 @@
 /**********************************
  * IFPB - Curso Superior de Tec. em Sist. para Internet
  * POO
- * Prof. Fausto Maranhão Ayres
+ * Prof. Fausto Maranhï¿½o Ayres
  **********************************/
 
 package appswing;
@@ -164,7 +164,7 @@ public class TelaIngresso {
 			public void actionPerformed(ActionEvent e) {
 				try{
 					if (table.getSelectedRow() >= 0){
-						String codigo = (String) table.getValueAt( table.getSelectedRow(), 1);
+						String codigo =  (String) ""+table.getValueAt( table.getSelectedRow(), 1);
 						Fachada.cancelarIngresso(Integer.parseInt(codigo));
 						label.setText("cancelou ingresso " +codigo);
 						listagem();
@@ -173,6 +173,7 @@ public class TelaIngresso {
 						label.setText("ingresso nao selecionado");
 				}
 				catch(Exception ex) {
+					System.out.println("problema");
 					label.setText(ex.getMessage());
 				}
 			}
@@ -191,7 +192,10 @@ public class TelaIngresso {
 					do{
 						try {
 							id = JOptionPane.showInputDialog("digite o id do jogo ou <enter>");
-							lista.add(Integer.parseInt(id));
+							String temp[] = id.split(",");
+							for (String i: temp) {
+								lista.add(Integer.parseInt(i));
+							}
 						}
 						catch(NumberFormatException ex) {
 							label.setText("id nao numerico:");
